@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/sobrenosotros', function () {
+});*/
+/*Route::get('/sobrenosotros', function () {
     return 'Esta es la página que habla sobre nosotros';
 });
 Route::get('/contacto', function () {
@@ -25,6 +25,15 @@ Route::get('/foro', function () {
 });
 Route::get('/post/{id}/{nombre}', function ($id,$nombre) {
     return 'ESte es el post nº '.$id.' creado por '.$nombre;
-})->where('nombre','[a-z]+');
+})->where('nombre','[a-z]+');*/
 
-
+//Route::get('/inicio','EjemploController@inicio');
+//Route::get('/inicio/{id}','Ejemplo3Controller@index');
+//Route::get('/inicio/{id}','Ejemplo3Controller@index');
+/*Route::get('/', 'PaginasController@inicio');
+Route::get('/inicio', 'PaginasController@inicio');
+Route::get('/quienesSomos', 'PaginasController@quienesSomos');
+Route::get('/dondeEstamos', 'PaginasController@dondeEstamos');
+Route::get('/foro', 'PaginasController@foro');
+*/
+Route::resource('posts','Ejemplo3Controller');
