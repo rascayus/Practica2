@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::get('/','MiControlador@index');
+Route::get('/crear','MiControlador@create');
+Route::get('/articulos','MiControlador@store');
+Route::get('/mostrar','MiControlador@show');
