@@ -36,5 +36,5 @@ Route::get('/actualiza',function(){
     DB::update("UPDATE articulos SET SECCION='DECORACION' WHERE ID=?",[2]);
 });
 Route::get('/borra',function(){
-    DB::update("DELETE from articulos WHERE ID=?",[2]);
+    DB::delete("DELETE from articulos WHERE ID=?",[2]);
 });
