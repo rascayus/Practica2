@@ -84,4 +84,17 @@ class MiControlador extends Controller
     {
         //
     }
+    
+    public function contactar()
+    {
+        return view('contacto');
+
+    }
+    public function galeria()
+    {
+        $alumnos=["Ana","Sara","Antonio","Manuel"];
+        return view('galeria', compact('alumnos'));
+
+
+    }
 }
