@@ -7,55 +7,76 @@ EDITAR REGISTROS
 
 @section('contenido')
 
-<form method="post" action="/productos/{{$producto->id}}">
+{!! Form::model($producto,['method' => 'PUT','action'=>['ProductosController@update',$producto->id]]) !!}
+{{-- <form method="post" action="/productos/{{$producto->id}}"> --}}
     <table>
         <tr>
-            <td>Nombre:</td>
+            <td>{{-- Nombre: --}}{!!Form::label('nombre', 'Nombre:')!!}</td>
+
             <td>
-                <input type="text" name="nombreArticulo" value= {{$producto->nombreArticulo}}>
-                {{csrf_field()}}
-                <input type="hidden" name="_method" value="PUT">
+                {!! Form::text('nombreArticulo',$producto->nombreArticulo)!!}
+                {!! Form::token()!!}
+                {{-- <input type="text" name="nombreArticulo" value= {{$producto->nombreArticulo}}> 
+                {{csrf_field()}} --}}
+                {{-- <input type="hidden" name="_method" value="PUT"> --}}
             </td>
         </tr>
         <tr>
-            <td>Sección:</td>
+            <td>{{-- Sección: --}}{!!Form::label('seccion', 'Sección:')!!}</td>
             <td>
-                <input type="text" name="seccion" value= {{$producto->seccion}}>
+                {!! Form::text('seccion',$producto->seccion)!!}
+                {{-- <input type="text" name="seccion" value= {{$producto->seccion}}> --}}
             </td>
         </tr>
         <tr>
-            <td>Precio:</td>
+            <td>{{-- Precio: --}}{!!Form::label('precio', 'Precio:')!!}</td>
             <td>
-                <input type="text" name="precio" value= {{$producto->precio}}>
+                {!! Form::text('precio',$producto->precio)!!}
+                {{-- <input type="text" name="precio" value= {{$producto->precio}}> --}}
             </td>
         </tr>
         <tr>
-            <td>Fecha:</td>
+            <td>{{-- Fecha: --}}{!!Form::label('fecha', 'Fecha:')!!}</td>
             <td>
-                <input type="text" name="fecha" value= {{$producto->fecha}}>
+                {!! Form::text('fecha',$producto->fecha)!!}
+                {{-- <input type="text" name="fecha" value= {{$producto->fecha}}> --}}
             </td>
         </tr>
         <tr>
-            <td>Pais de Origen:</td>
+            <td>{{-- Pais de Origen: --}}{!!Form::label('paisOrigen', 'Pais de Origen:')!!}</td>
             <td>
-                <input type="text" name="paisOrigen" value= {{$producto->paisOrigen}}>
+                {!! Form::text('paisOrigen',$producto->paisOrigen)!!}
+                {{-- <input type="text" name="paisOrigen" value= {{$producto->paisOrigen}}> --}}
             </td>
         </tr>
         <tr>
             <td>
-                <input type="submit" name="actualizar" value="Actualizar">
+                {{-- <input type="submit" name="enviar" value="Enviar"> --}}
+                {!! Form::submit('Actualizar')!!}
+
             </td>
             <td>
-                <input type="reset" name="Borrar" value="Borrar campos">
+                {{-- <input type="reset" name="Borrar" value="Borrar"> --}}
+                {!! Form::reset('Borrar campo')!!}
+
             </td>
         </tr>
     </table>
-</form>
-<form method="post" action="/productos/{{$producto->id}}">
+{{-- </form> --}}
+{!! Form::close() !!}
+
+{{-- <form method="post" action="/productos/{{$producto->id}}">
     {{csrf_field()}}
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Eliminar registro">
-</form>
+</form> --}}
+{!! Form::open(['method' => 'DELETE','action'=>['ProductosController@destroy',$producto->id]]) !!}
+
+{!! Form::token()!!}
+
+{!! Form::submit('Eliminar registro')!!}
+
+{!! Form::close() !!}
     
 @endsection
 @section('pie')

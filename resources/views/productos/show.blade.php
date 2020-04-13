@@ -8,6 +8,8 @@ LEER REGISTROS
 @section('contenido')
 
 <H1> {{$producto->nombreArticulo}}</H1>
+
+
     
 @endsection
 @section('pie')
