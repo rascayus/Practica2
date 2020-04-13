@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+/*
+Route::get('/inicio','ProductosController@index');
+Route::get('/crear','ProductosController@create');
+Route::get('/insertar','ProductosController@store');
+Route::get('/actualizar','ProductosController@update');
+Route::get('/borrar','ProductosController@destroy');
+*/
+Route::resource('/productos','ProductosController');
