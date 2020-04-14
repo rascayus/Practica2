@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +13,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    /* $user = Auth::user();
+    if (isset($user))
+    {
+        echo $user->esAdmin()?"Eres usuario administrador":"Eres estudiante";
+    } */
+   return view('welcome');
+  //return Auth::check()?"Estás logueado":"No estás logueado";
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdministradorController@index');
