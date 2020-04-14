@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +13,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   
+    // return view('welcome');
+    $datos=[
+        'titulo'=>'Hola alumnos de Laravel',
+        'contenido'=>'Esto es una prueba de envio de correo'
+    ];
+    Mail::send("emails.test",$datos,function($mensaje){
+        $mensaje->to('juandialonso@gmail.com','Juan Diego')->subject("Ojo, mensaje importante!!");
+    });
 });
+
