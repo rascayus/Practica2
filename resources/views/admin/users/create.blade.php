@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Pagina para agregar usuarios</h1>
-    {!! Form::open(['method' => 'POST','action' => 'AdminUsersController@store']) !!} {{-- 'route' => 'store' También funciona--}}
+    {!! Form::open(['method' => 'POST','action' => 'AdminUsersController@store','files'=>true]) !!} {{-- 'route' => 'store' También funciona--}}
     {{Form::token()}}
         <table width="500">
             <tr>
@@ -44,10 +44,18 @@
             </tr>
             <tr>
                 <td>
-                    {{Form::label('rol_id', 'Rol: ')}}
+                    {{Form::label('role_id', 'Rol: ')}}
                 </td>
                 <td>
-                    {{Form::text('rol_id')}}
+                    {{Form::text('role_id')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{Form::label('ruta_foto', 'Foto: ')}}
+                </td>
+                <td>
+                    {{Form::file('ruta_foto')}}
                 </td>
             </tr>
             <tr>

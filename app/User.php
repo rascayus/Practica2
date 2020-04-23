@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id','ruta_foto'
     ];
 
     /**
@@ -29,6 +30,10 @@ class User extends Authenticatable
 
     function role()
     {
-        $this->belongsTo('App\Role');
+        return $this->belongsTo('App\Role');
+    }
+    function foto()
+    {
+        return $this->BelongsTo('App\Foto');
     }
 }
