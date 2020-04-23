@@ -41,14 +41,15 @@ class AdminUsersController extends Controller
     {
         $entrada =$request->all();
 
-        if($archivo=$request->file('ruta_foto')){
+        if($archivo=$request->file('foto_id')){
             $nombre=$archivo->getClientOriginalName();
             $archivo->move('images',$nombre);
             $foto=Foto::create(['ruta_foto'=>$nombre]);
-            $entrada['ruta_foto']=$foto->id;
+            $entrada['foto_id']=$foto->id;
         }
-
+            $entrada['password']=bcrypt($request->password);
             User::create($entrada);
+            return redirect ('admin/users');
 
         /* User::create($request->all());
         return redirect ('admin/users');
