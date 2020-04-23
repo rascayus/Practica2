@@ -24,13 +24,14 @@
                         <td>{{ $user->id}}</td>
 
                         <td>
-                            @if ($user->foto)
+                           <img src="/images/{{ $user->foto ? $user->foto->ruta_foto:"generico.jpeg"}}" width="100" alt="">
+                           {{--  @if ($user->foto)
                                 <img src="/images/{{ $user->foto->ruta_foto}}" width="100" alt="">
-                            @else Sin foto
-                            @endif
+                            @else    <img src="/images/generico.jpeg" width="100" alt="">
+                            @endif --}}
                         </td>
                         <td>{{ $user->role_id}}</td>
-                        <td>{{ $user->name}}</td>
+                        <td><a href="{{route('edit',$user->id)}}">{{ $user->name}}</a></td>
                         <td>{{ $user->email}}</td>
                         <td>{{ $user->created_at}}</td>
                         <td>{{ $user->updated_at}}</td>
