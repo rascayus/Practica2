@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Pagina para modificar usuarios</h1>
-    {!! Form::model($user, ['method' => 'PATCH','action' => ['AdminUsersController@update', $user->id], 'files'=>true]) !!} {{-- 'route' => 'store' También funciona--}}
+    {!! Form::model($user, ['method' => 'PATCH','action' => ['AdminUsersController@update', $user->id], 'files'=>true]) !!} {{-- 'route' => 'users.store' También funciona--}}
     {{Form::token()}}
         <table width="500">
             <tr>
@@ -26,19 +26,6 @@
                 </td>
                 <td>
                     {{Form::text('name')}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{Form::label('password', 'Password: ')}}
-                </td>
-                <td>
-                    {{Form::text('password')}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{Form::label('email', 'E-Mail: ')}}
                 </td>
             </tr>
             <tr>

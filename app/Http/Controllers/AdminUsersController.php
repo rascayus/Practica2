@@ -75,7 +75,9 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -87,7 +89,18 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $user = User::findOrFail($id);
+        $entrada =$request->all();
+
+        if($archivo=$request->file('foto_id')){
+            $nombre=$archivo->getClientOriginalName();
+            $archivo->move('images',$nombre);
+            $foto=Foto::create(['ruta_foto'=>$nombre]);
+            $entrada['foto_id']=$foto->id;
+        }
+            $user->update($entrada);
+            return redirect ('admin/users');
     }
 
     /**

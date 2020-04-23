@@ -31,13 +31,18 @@
                             @endif --}}
                         </td>
                         <td>{{ $user->role_id}}</td>
-                        <td><a href="{{route('edit',$user->id)}}">{{ $user->name}}</a></td>
+                        <td><a href="{{route('users.edit',$user->id)}}">{{ $user->name}}</a></td>
                         <td>{{ $user->email}}</td>
                         <td>{{ $user->created_at}}</td>
                         <td>{{ $user->updated_at}}</td>
 
                     </tr>
-                @endforeach
+                    @endforeach
+                    <tr>
+                        <td colspan="7">
+                           <a href="{{route('users.create')}}"><button>Nuevo Usuario</button></a>
+                        </td>
+                    </tr>
             @endif
         </table>
 

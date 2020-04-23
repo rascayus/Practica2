@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Pagina para agregar usuarios</h1>
-    {!! Form::open(['method' => 'POST','action' => 'AdminUsersController@store','files'=>true]) !!} {{-- 'route' => 'store' También funciona--}}
+    {!! Form::open(['method' => 'POST','action' => 'AdminUsersController@store','files'=>true]) !!} {{-- 'route' => 'users.store' También funciona--}}
     {{Form::token()}}
         <table width="500">
             <tr>
@@ -66,8 +66,6 @@
                     {{Form::reset('Borrar datos')}}
                 </td>
             </tr>
-
-        
         </table>
     {!! Form::close() !!}
 </body>
